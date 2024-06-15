@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package prto;
+
+option go_package = "./pkg/api";
+
+service HostnameService {
+    rpc SetHostname(SetHostnameRequest) returns (SetHostnameResponce);
+    rpc ListDNSServers(ListDNSServersRequest) returns (ListDNSServersResponce);
+    rpc AddDNSServer(AddDNSServerRequest) returns (AddDNSServerResponce);
+    rpc RemoveDNSServer(RemoveDNSServerRequest) returns (RemoveDNSServerResponce);
+}
+
+message SetHostnameRequest {
+    string hostname = 1;
+}
+
+message SetHostnameResponce {
+    string message = 1;
+}
+
+message ListDNSServersRequest {}
+
+message ListDNSServersResponce {
+    repeated string servers = 1;
+}
+
+message AddDNSServerRequest {
+    string server = 1;
+}
+
+message AddDNSServerResponce {
+    string message = 1;
+}
+
+message RemoveDNSServerRequest {
+    string server = 1;
+}
+
+message RemoveDNSServerResponce {
+    string message = 1;
+}
